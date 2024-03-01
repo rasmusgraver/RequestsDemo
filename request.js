@@ -1,5 +1,5 @@
-const GetURL = "https://rasmus.42web.io/get.php"
-const PostURL = "https://rasmus.42web.io/post.json"
+const GetURL = "https://rasmusweb.no/get.php"
+const PostURL = "https://rasmusweb.no/post.json"
 
 async function getRequest() {
     const response = await fetch(GetURL, {
