@@ -5,13 +5,13 @@ async function getRequest() {
   const htmlObj = document.getElementById("get")
   htmlObj.innerHTML = "Waiting for response"
 
-  const apiCallPromise = await fetch(GetURL, {
+  const apiCallPromise = await fetch(GetURL + "?id=" + "forEu", {
     method: "GET",
     //  mode: "no-cors", // no-cors, *cors, same-origin
     headers: {
       Accept: "application/json",
     },
-    body: JSON.stringify({ id: "forEu" }),
+    // Kan ikke ha med body i GET request. body: JSON.stringify({ id: "forEu" }),
   })
 
   htmlObj.innerHTML = ""
@@ -32,9 +32,14 @@ async function getRequest() {
   }
 }
 
-async function postRequest() {
+// Poster et svar til php backend
+async function postRequest(svar) {
   const htmlObj = document.getElementById("post")
   htmlObj.innerHTML = "Waiting for response"
+
+  postBody = {}
+  postBody.id = "forEu"
+  postBody.svar = svar
 
   const apiCallPromise = await fetch(PostURL, {
     method: "POST",
@@ -44,7 +49,7 @@ async function postRequest() {
       Accept: "application/json",
       // "Content-Type": "application/json",
     },
-    body: JSON.stringify({ id: 78912 }),
+    body: JSON.stringify(postBody),
   })
 
   htmlObj.innerHTML = ""
