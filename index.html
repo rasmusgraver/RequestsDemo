@@ -1,24 +1,26 @@
 <!DOCTYPE html>
 <html lang="no">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-    <title>Get and Post json</title>
-</head>
-<body>
-    <h1>Tester litt post og get requests med async await</h1>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            http-equiv="Content-Security-Policy"
+            content="upgrade-insecure-requests"
+        />
+        <title>Get and Post json</title>
+    </head>
+    <body>
+        <h1>Tester litt post og get requests med async await</h1>
 
-    <h2>Get test</h2>
-    <button onclick="getRequest()">Test Get</button>
-    <div class="result" id="get"></div>
+        <h2>Get test</h2>
+        <button onclick="getRequest()">Test Get</button>
+        <div class="result" id="get"></div>
 
-    <h2>Post test</h2>
-    <button onclick="postRequest('ja')">Stem ja</button>
-    <button onclick="postRequest('nei')">Stem nei</button>
-    <div class="result" id="post"></div>
+        <h2>Post test</h2>
+        <button onclick="postRequest('ja')">Stem ja</button>
+        <button onclick="postRequest('nei')">Stem nei</button>
+        <div class="result" id="post"></div>
 
-    <script src="request.js"></script>
-
-</body>
+        <script src="request.js"></script>
+    </body>
 </html>
