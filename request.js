@@ -7,18 +7,13 @@ async function getRequest() {
 
     const apiCallPromise = await fetch(GetURL + "?id=" + "forEu", {
         method: "GET",
-        //  mode: "no-cors", // no-cors, *cors, same-origin
         headers: {
             Accept: "application/json",
         },
-        // Kan ikke ha med body i GET request. body: JSON.stringify({ id: "forEu" }),
     })
 
     htmlObj.innerHTML = ""
-
-    const p = document.createElement("p")
-    p.textContent = "StatusCodeOK: " + apiCallPromise.ok
-    htmlObj.appendChild(p)
+    appendPElm(htmlObj, "StatusCodeOK: " + apiCallPromise.ok)
 
     // Getting the json entries from the response:
     const entries = await apiCallPromise.json()
@@ -26,9 +21,7 @@ async function getRequest() {
 
     for (const entry of entries) {
         console.log(entry)
-        const p = document.createElement("p")
-        p.textContent = "Entry: " + JSON.stringify(entry)
-        htmlObj.appendChild(p)
+        appendPElm(htmlObj, "Entry: " + JSON.stringify(entry))
     }
 }
 
@@ -43,26 +36,24 @@ async function postRequest(svar) {
 
     const apiCallPromise = await fetch(PostURL, {
         method: "POST",
-        // mode: "cors", // no-cors, *cors, same-origin
-        // cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
         headers: {
             Accept: "application/json",
-            // "Content-Type": "application/json",
         },
         body: JSON.stringify(postBody),
     })
 
     htmlObj.innerHTML = ""
-
-    const p = document.createElement("p")
-    p.textContent = "StatusCodeOK: " + apiCallPromise.ok
-    htmlObj.appendChild(p)
+    appendPElm(htmlObj, "StatusCodeOK: " + apiCallPromise.ok)
 
     // Getting the json from the response:
     const responseJson = await apiCallPromise.json()
     console.log(responseJson)
 
-    const p2 = document.createElement("p")
-    p2.textContent = "Response: " + responseJson
-    htmlObj.appendChild(p2)
+    appendPElm(htmlObj, "Response: " + responseJson)
+}
+
+function appendPElm(htmlObj, text) {
+    const p = document.createElement("p")
+    p.textContent = text
+    htmlObj.appendChild(p)
 }
