@@ -1,12 +1,11 @@
-const GetURL = "https://rasmusweb.no/get.php"
-const PostURL = "https://rasmusweb.no/post.php"
+const URL = "https://rasmusweb.no/spm.php"
 const spmID = "forEU"
 
 async function getRequest() {
     const htmlObj = document.getElementById("get")
     htmlObj.innerHTML = "Waiting for response"
 
-    const apiCallPromise = await fetch(GetURL + "?id=" + spmID, {
+    const apiCallPromise = await fetch(URL + "?id=" + spmID, {
         method: "GET",
         headers: {
             Accept: "application/json",
@@ -35,7 +34,7 @@ async function postRequest(svar) {
     postBody.id = spmID
     postBody.svar = svar
 
-    const apiCallPromise = await fetch(PostURL, {
+    const apiCallPromise = await fetch(URL, {
         method: "POST",
         headers: {
             Accept: "application/json",
