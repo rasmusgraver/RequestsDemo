@@ -7,7 +7,6 @@ async function getRequest() {
 
     const apiCallPromise = await fetch(URL + "?id=" + GameID, {
         method: "GET",
-        //  mode: "no-cors", // no-cors, *cors, same-origin
         headers: {
             Accept: "application/json",
         },
