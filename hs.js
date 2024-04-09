@@ -1,16 +1,18 @@
 const URL = "https://rasmusweb.no/hs.php"
 const GameID = "game3"
 
+const requestOptions = {
+    method: "GET",
+    headers: {
+        Accept: "application/json",
+    },
+}
+
 async function getRequest() {
     const htmlObj = document.getElementById("get_result")
     htmlObj.innerHTML = "Waiting for response"
 
-    const apiCallPromise = await fetch(URL + "?id=" + GameID, {
-        method: "GET",
-        headers: {
-            Accept: "application/json",
-        },
-    })
+    const apiCallPromise = await fetch(URL + "?id=" + GameID, requestOptions)
 
     htmlObj.innerHTML = ""
     appendPElm(htmlObj, "StatusCodeOK: " + apiCallPromise.ok)
